@@ -18,6 +18,9 @@ fun todoTask10(): Nothing = TODO(
 
 fun task10(): List<Int> {
     val arrayList = arrayListOf(1, 5, 2)
-    Collections.sort(arrayList, todoTask10())
+    // Could be converted to lambda but let the object expression be seen.
+    Collections.sort(arrayList, object : Comparator<Int> {
+        override fun compare(p0: Int, p1: Int): Int = p1 - p0
+    })
     return arrayList
 }
